@@ -1,6 +1,6 @@
 #include "../includes/mcu.h"
 
-void	write_string(char *dst, char *src, int len)
+void	write_string(char *dst, char *src, int len) /* standard func leave in the end '\0' */
 {
 	int i = 0;
 
@@ -19,7 +19,7 @@ void	embedded_write(t_memory *memory, char *str, int len)
 	memory->current_block_size += len;
 }
 
-bool	check_data_possibility_to_be_written_to_the_current_block(int len, int current_block_size, int block_limit)
+bool	block_capacity(int len, int current_block_size, int block_limit) /* block capacity */
 {
 	if ( ( block_limit - current_block_size - len ) >= 0 )
 		return (true);
@@ -51,7 +51,7 @@ void	write(t_memory *memory, char *str)
 
 	len = strlen(str);
 
-	if (check_data_possibility_to_be_written_to_the_current_block(len, memory->current_block_size, memory->block_limit))
+	if (block_capacity(len, memory->current_block_size, memory->block_limit))
 	{
 		// printf("cur address -> %p\n",(void*)memory->current_block_position);
 		// printf("end address -> %p\n",(void*)memory->end);

@@ -15,6 +15,8 @@ int		main(void)
 	write(&memory, "5");
 	write(&memory, "6");
 	write(&memory, "7");
+	write(&memory, "8");
+
 
 
 
