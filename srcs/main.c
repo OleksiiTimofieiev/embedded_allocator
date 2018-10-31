@@ -22,28 +22,8 @@ int		main(void)
 
 
 
-
-
-
-	// printf("%s\n", memory.memory_pull);
-
-	// write(&memory, "12345678910");
-	// write(&memory, "123456789");
-
-	// write(&memory, "aaa");
-	// write(&memory, "bbb");
-	// write(&memory, "ccc");
-
-
-
-
-
-
 	print_memory(memory.memory_pull);
-
-
-	printf("%ld\n", memory.end - memory.current_block_position); /* till the end of the block when the start remains unchanged */
-
+	print_blocks_available(&memory);
 
 
 	return (0);

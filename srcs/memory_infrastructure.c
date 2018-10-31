@@ -39,7 +39,14 @@ void	print_memory(char *str)
 {
 	int i = 0;
 
+	printf("%s", "Memory contents: ");
+
 	while (i < MEMORY_SIZE)
 		printf("%c", str[i++]);
-	printf("\n");
+	printf(".\n");
 }	
+
+void	print_blocks_available(t_memory *memory)
+{
+	printf("Memory available: %ld block(s).\n", memory->end - memory->current_block_position); /* till the end of the block when the start remains unchanged */
+}
