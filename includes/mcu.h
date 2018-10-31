@@ -14,14 +14,14 @@ typedef	struct	s_memory
 	char		*current_block_position;
 	char		*end;
 	
-	/* block processing */
-	/* for the absence of the data break */
+	/* block processing
+	   for the absence of the data break */
 	int			current_block_size;
 	int			block_limit;
 
 	/* memory pointer for testing */
 	char		*memory_pull;
-	
+
 }				t_memory;
 
 void	init(t_memory *memory);
