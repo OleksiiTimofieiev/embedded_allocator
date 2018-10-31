@@ -35,9 +35,13 @@ bool	memory_availability(t_memory *memory)
 	// printf("start_init%p\n", (void*)memory->start_init); // str compare method
 
 	// printf("\n");
-
+ 	
+ 	// 1. works;
 	if (memory->current_block_position == memory->end && memory->start == memory->start_init)
 		return (false);
+	// 2. to test;
+	// 3. to test;
+	// 3. to test;
 	return (true);
 }
 
