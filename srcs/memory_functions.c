@@ -4,6 +4,7 @@ void	init(t_memory *memory) /* configure the memory */
 {
 	memory->memory_pull = (char *)malloc((sizeof (char) * MEMORY_SIZE));
 
+
 	memory->start = memory->memory_pull; /* start to read func */
 
 	// save to some hex value;
@@ -26,6 +27,7 @@ void	init(t_memory *memory) /* configure the memory */
 	// {
 	// 	printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[i]);
 	// }
+	long long int start address = *(memory->start);
 }
 
 /* case: no sufficient space: 1. when the start address is 0x00 */
