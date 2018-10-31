@@ -38,7 +38,8 @@ void	write(t_memory *memory, char *str)
 	}
 	else
 	{
-		if (we have some space till the end or in the start);
+		if (we have some space till the end or in the start of the memory block);
+		
 		memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
 		memory->current_block_size = 0;
 		embedded_write(memory, str, len);
