@@ -44,6 +44,9 @@ void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
 
 	memory->current_block_position += len;
 	memory->current_block_size += len;
+	
+	// if no sufficient block move to other block
+	// if move to other block -> check the capacity of other block;
 }
 
 // memory capacity diagnostics (kind of graphics);
