@@ -23,12 +23,11 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS) $(INC)
 	@ gcc $(CFLAGS) -I $(INC) $(SRCS) -o $(NAME)
+	@ echo  "$(GREEN)Compilation$(RESET)\c)"
 	@ echo  "$(YELLOW) : OK$(RESET)"
 
 $(OBJECTS): %.o: %.c
 	@ gcc -c $(CFLAGS) $< -o $@
-	@ echo  "$(GREEN)Compilation: $(RESET)\c)"
-	@ echo  "$(YELLOW)█$(RESET)\c)"
 
 clean:
 	@ rm -f $(OBJECTS)
