@@ -3,6 +3,8 @@
 // leaks management;
 // commands from the command line: read, write, memory usage;
 
+
+
 int		main(void)
 {
 	t_memory memory;
@@ -37,7 +39,7 @@ int		main(void)
 
 
 
-	printf("%s\n", memory.memory_pull);
+	print_memory(memory.memory_pull);
 
 
 	printf("%ld\n", memory.end - memory.current_block_position); /* till the end of the block when the start remains unchanged */

@@ -32,3 +32,4 @@ typedef	struct	s_memory
 
 void	init(t_memory *memory);
 void	write(t_memory *memory, char *str);
+void	print_memory(char *str);

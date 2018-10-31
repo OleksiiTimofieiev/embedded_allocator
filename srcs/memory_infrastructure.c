@@ -34,3 +34,12 @@ void	init(t_memory *memory) /* configure the memory */
 
 	memset(memory->current_block_position, ' ', MEMORY_SIZE); /* what character to use ? */
 }
+
+void	print_memory(char *str)
+{
+	int i = 0;
+
+	while (i < MEMORY_SIZE)
+		printf("%c", str[i++]);
+	printf("\n");
+}	
