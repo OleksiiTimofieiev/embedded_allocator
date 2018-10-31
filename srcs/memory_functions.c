@@ -1,12 +1,12 @@
 #include "../includes/mcu.h"
 
-void	init(t_memory *memory)
+void	init(t_memory *memory) /* configure the memory */
 {
 	memory->memory_pull = (char *)malloc((sizeof (char) * MEMORY_SIZE));
 
-	memory->start = memory->memory_pull;
+	memory->start = memory->memory_pull; /* start to read func */
 	memory->current_block_position = memory->memory_pull;
-	memory->end = memory->memory_pull;
+	memory->end = memory->memory_pull + (MEMORY_SIZE - 1); /* last available block */
 
 	/* initial addresses diagnostics */
 	// printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[0]);
@@ -25,9 +25,13 @@ void	init(t_memory *memory)
 	// }
 }
 
-// void	write(t_memory *memory, char *str)
-// {
+/* case: no sufficient space */
 
-// }
+void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
+{
+	sprintf(memory->current_block_position, "%s", str);
+
+	memory->current_block_position += strlen(str);
+}
 
 // memory capacity diagnostics (kind of graphics);
