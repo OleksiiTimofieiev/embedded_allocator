@@ -26,6 +26,7 @@ void	init(t_memory *memory) /* configure the memory */
 }
 
 /* case: no sufficient space */
+/* case: block size after end */
 
 void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
 {
