@@ -2,6 +2,9 @@
 
 int		main(void)
 {
-	printf("%s\n", "makefile test");
+	t_memory memory;
+
+	init(&memory);
+
 	return (0);
 }
