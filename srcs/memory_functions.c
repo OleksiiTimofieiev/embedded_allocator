@@ -12,7 +12,7 @@ void	init(t_memory *memory) /* configure the memory */
 	memory->current_block_position = memory->memory_pull;
 	memory->end = memory->memory_pull + (MEMORY_SIZE - 1); /* last available block */
 
-	/* initial addresses diagnostics */
+	// /* initial addresses diagnostics */
 	// printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[0]);
 
 	// printf("start -> %p\n",(void*)memory->start);
@@ -27,7 +27,10 @@ void	init(t_memory *memory) /* configure the memory */
 	// {
 	// 	printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[i]);
 	// }
-	long long int start address = *(memory->start);
+	memory->start_address = (long long int)memory->start;
+
+	/* memory start address debug */
+	// printf("%lld\n", memory->start_address);
 }
 
 /* case: no sufficient space: 1. when the start address is 0x00 */

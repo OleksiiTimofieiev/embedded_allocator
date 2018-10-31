@@ -22,6 +22,9 @@ typedef	struct	s_memory
 	/* memory pointer for testing */
 	char		*memory_pull;
 
+	/* just for testing */
+	long long int start_address;
+
 }				t_memory;
 
 void	init(t_memory *memory);
