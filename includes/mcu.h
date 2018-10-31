@@ -26,7 +26,7 @@ typedef	struct	s_memory
 	/* just for testing */
 	// long long int	start_address;
 	// long long int	end_address;
-	char *start_init;
+	char			*start_init;
 
 }				t_memory;
 
