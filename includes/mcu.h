@@ -30,7 +30,7 @@ typedef	struct	s_memory
 
 }				t_memory;
 
-void	init(t_memory *memory);
-void	write(t_memory *memory, char *str);
-void	print_memory(char *str);
-void	print_blocks_available(t_memory *memory);
+void			init(t_memory *memory);
+void			write(t_memory *memory, char *str);
+void			print_memory(char *str);
+void			print_blocks_available(t_memory *memory);
