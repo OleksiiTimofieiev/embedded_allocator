@@ -8,8 +8,14 @@ int		main(void)
 
 	init(&memory);
 	
-	write(&memory, "11111");
-	write(&memory, "22222");
+	write(&memory, "1");
+	write(&memory, "2");
+	write(&memory, "3");
+	write(&memory, "4");
+	write(&memory, "5");
+
+
+
 	// printf("%s\n", memory.memory_pull);
 
 	// write(&memory, "12345678910");
@@ -18,10 +24,8 @@ int		main(void)
 	// write(&memory, "aaa");
 	// write(&memory, "bbb");
 	// write(&memory, "ccc");
-	write(&memory, "dddddddddddddddddddd");
-	write(&memory, "dddddddddddddddddddd");
-	write(&memory, "dddddddddddddddddddd");
-	write(&memory, "ddddddddddddddddddd");
+
+
 
 
 

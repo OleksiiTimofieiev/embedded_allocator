@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define	MEMORY_SIZE		100
-#define	BLOCKS_LIMIT	20
+#define	MEMORY_SIZE		3
+#define	BLOCKS_LIMIT	1
 
 // add initial address pointer start value
 
@@ -24,7 +24,9 @@ typedef	struct	s_memory
 	char			*memory_pull;
 
 	/* just for testing */
-	long long int	start_address;
+	// long long int	start_address;
+	// long long int	end_address;
+	char *start_init;
 
 }				t_memory;
 

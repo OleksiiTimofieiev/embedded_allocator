@@ -9,7 +9,7 @@ void	init(t_memory *memory) /* configure the memory */
 	// save to some hex value;
 
 	memory->current_block_position = memory->memory_pull;
-	memory->end = memory->memory_pull + (MEMORY_SIZE - 1); /* last available block */
+	memory->end = memory->memory_pull + MEMORY_SIZE; /* last available block */
 
 	// /* initial addresses diagnostics */
 	// printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[0]);
@@ -27,7 +27,10 @@ void	init(t_memory *memory) /* configure the memory */
 	// 	printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[i]);
 	// }
 
-	memory->start_address = (long long int)memory->start;
+	// memory->start_address = (long long int)memory->start;
+	// memory->start_address = (long long int)memory->end;
+
+	memory->start_init = memory->memory_pull;
 
 	memset(memory->current_block_position, ' ', MEMORY_SIZE); /* what character to use ? */
 }
