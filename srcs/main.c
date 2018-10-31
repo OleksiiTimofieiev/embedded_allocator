@@ -8,11 +8,11 @@ int		main(void)
 
 	init(&memory);
 	
-	embedded_write(&memory, "test1");
-	embedded_write(&memory, "test2");
-	embedded_write(&memory, "test3");
-
-
+	embedded_write(&memory, "11111");
+	embedded_write(&memory, "22222");
+	embedded_write(&memory, "33333");
+	embedded_write(&memory, "44444");
+	embedded_write(&memory, "55555");
 
 	printf("%s\n", memory.memory_pull);
 
