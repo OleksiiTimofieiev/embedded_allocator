@@ -25,11 +25,13 @@ void	init(t_memory *memory) /* configure the memory */
 	// }
 }
 
+/* general routine to be done */
 /* case: no sufficient space */
 /* case: block size after end */
 
 void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
 {
+	/* memory capacity chacking function */
 	int		len;
 
 	len = strlen(str);
