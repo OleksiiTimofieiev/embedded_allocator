@@ -13,6 +13,10 @@ int		main(void)
 	write(&memory, "3");
 	write(&memory, "4");
 	write(&memory, "5");
+	write(&memory, "6");
+	write(&memory, "7");
+
+
 
 
 

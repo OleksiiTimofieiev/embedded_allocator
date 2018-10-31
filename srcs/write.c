@@ -26,21 +26,20 @@ bool	check_data_possibility_to_be_written_to_the_current_block(int len, int curr
 	return (false);
 }
 
-void	memory_availability(t_memory *memory)
+bool	memory_availability(t_memory *memory)
 {
-	printf("cur address -> %p\n",(void*)memory->current_block_position);
-	printf("end address -> %p\n",(void*)memory->end);
+	// printf("cur address -> %p\n",(void*)memory->current_block_position);
+	// printf("end address -> %p\n",(void*)memory->end);
 
-	printf("memory start -> %p\n", (void*)memory->start);
-	printf("start_init%p\n", (void*)memory->start_init); // str compare method
-
-
-	printf("\n");
+	// printf("memory start -> %p\n", (void*)memory->start);
+	// printf("start_init%p\n", (void*)memory->start_init); // str compare method
 
 
+	// printf("\n");
 
-	if (memory->current_block_position == memory->end  && memory->start == memory->start_init)
-		printf("%s\n", "here");
+	if (memory->current_block_position == memory->end && memory->start == memory->start_init)
+		return (false);
+	return (true);
 }
 
 void	write(t_memory *memory, char *str)
@@ -51,10 +50,9 @@ void	write(t_memory *memory, char *str)
 
 	if (check_data_possibility_to_be_written_to_the_current_block(len, memory->current_block_size, memory->block_limit))
 	{
-		printf("cur address -> %p\n",(void*)memory->current_block_position);
-		printf("end address -> %p\n",(void*)memory->end);
-		printf("\n");
-
+		// printf("cur address -> %p\n",(void*)memory->current_block_position);
+		// printf("end address -> %p\n",(void*)memory->end);
+		// printf("\n");
 
 		embedded_write(memory, str, len);
 		// printf("%s\n", "here1");
@@ -63,13 +61,15 @@ void	write(t_memory *memory, char *str)
 	{
 		// printf("%s\n", "here2");
 
-		memory_availability(memory);
-
-		memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
-		memory->current_block_size = 0;
+		if(memory_availability(memory))
+		{
+			memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
+			memory->current_block_size = 0;
 		
-
-		embedded_write(memory, str, len);
+			embedded_write(memory, str, len);
+		}
+		else
+			printf("%s\n", "No available memory");
 	}
 		// printf("%s\n", "here3");
 }
