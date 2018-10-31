@@ -5,6 +5,9 @@ void	init(t_memory *memory) /* configure the memory */
 	memory->memory_pull = (char *)malloc((sizeof (char) * MEMORY_SIZE));
 
 	memory->start = memory->memory_pull; /* start to read func */
+
+	// save to some hex value;
+
 	memory->current_block_position = memory->memory_pull;
 	memory->end = memory->memory_pull + (MEMORY_SIZE - 1); /* last available block */
 
