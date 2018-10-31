@@ -4,9 +4,9 @@ void	init(t_memory *memory)
 {
 	memory->memory_pull = (char *)malloc((sizeof (char) * MEMORY_SIZE));
 
-	memory->start = &memory->memory_pull[0];
-	memory->current_block_position = &memory->memory_pull[0];
-	memory->end = &memory->memory_pull[0];
+	memory->start = memory->memory_pull;
+	memory->current_block_position = memory->memory_pull;
+	memory->end = memory->memory_pull;
 
 	/* initial addresses diagnostics */
 	// printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[0]);
