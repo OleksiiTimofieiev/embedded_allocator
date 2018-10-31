@@ -3,8 +3,6 @@
 // leaks management;
 // commands from the command line: read, write, memory usage;
 
-
-
 int		main(void)
 {
 	t_memory memory;
@@ -20,11 +18,8 @@ int		main(void)
 	write(&memory, "7");
 	write(&memory, "8");
 
-
-
 	print_memory(memory.memory_pull);
 	print_blocks_available(&memory);
-
 
 	return (0);
 }
