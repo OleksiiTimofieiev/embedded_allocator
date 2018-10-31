@@ -25,9 +25,14 @@ void	init(t_memory *memory) /* configure the memory */
 	// }
 }
 
-/* general routine to be done */
-/* case: no sufficient space */
-/* case: block size after end */
+/* case: no sufficient space: 1. when the start address is 0x00 */
+/* case: no sufficient space: 2. when the start address is not 0x00 -> random */
+/* case: according to the block size */
+
+void	write_possibility() /* according to the address and the block size */
+{
+
+}
 
 void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
 {
@@ -42,3 +47,7 @@ void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
 }
 
 // memory capacity diagnostics (kind of graphics);
+
+// void	embedded_read(...) read and delete the data from the memory;
+
+// erase the whole memory;

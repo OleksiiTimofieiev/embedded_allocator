@@ -13,6 +13,7 @@ typedef	struct	s_memory
 	char		*end;
 	
 	/* block processing */
+	/* for the absence of the data break */
 	int			current_block_size;
 	int			block_limit;
 
