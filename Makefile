@@ -26,7 +26,7 @@ $(NAME): $(OBJECTS) $(INC)
 
 $(OBJECTS): %.o: %.c
 	@ gcc -c $(CFLAGS) $< -o $@
-	@ echo  "$(YELLOW)Compilation: $(RESET)\c)"
+	@ echo  "$(GREEN)Compilation: $(RESET)\c)"
 	@ echo  "$(YELLOW)█$(RESET)\c)"
 
 clean:
