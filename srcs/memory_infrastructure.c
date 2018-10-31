@@ -2,7 +2,7 @@
 
 void	init(t_memory *memory) /* configure the memory */
 {
-	memory->memory_pull = (char *)malloc( ( sizeof(char) * MEMORY_SIZE) );
+	memory->memory_pull = (char *) malloc( ( sizeof(char) * MEMORY_SIZE) );
 
 	memory->start = memory->memory_pull; /* start to read func */
 
