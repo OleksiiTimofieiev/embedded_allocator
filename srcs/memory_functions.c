@@ -29,9 +29,13 @@ void	init(t_memory *memory) /* configure the memory */
 
 void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
 {
+	int		len;
+
+	len = strlen(str);
 	sprintf(memory->current_block_position, "%s", str);
 
-	memory->current_block_position += strlen(str);
+	memory->current_block_position += len;
+	memory->current_block_size += len;
 }
 
 // memory capacity diagnostics (kind of graphics);
