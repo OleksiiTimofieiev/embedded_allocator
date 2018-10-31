@@ -5,6 +5,8 @@
 #define	MEMORY_SIZE		100
 #define	BLOCKS_LIMIT	20
 
+// add initial address pointer start value
+
 typedef	struct	s_memory
 {
 	/* read / write pointers */
@@ -19,7 +21,7 @@ typedef	struct	s_memory
 
 	/* memory pointer for testing */
 	char		*memory_pull;
-
+	
 }				t_memory;
 
 void	init(t_memory *memory);
