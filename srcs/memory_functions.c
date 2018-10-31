@@ -48,6 +48,6 @@ void	embedded_write(t_memory *memory, char *str) /* memory wryte routine */
 
 // memory capacity diagnostics (kind of graphics);
 
-// void	embedded_read(...) read and delete the data from the memory;
+// void	embedded_read(...) read and delete the data from the memory within the specified address;
 
 // erase the whole memory;
