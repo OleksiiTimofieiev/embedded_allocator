@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define	MEMORY_SIZE		100
 #define	BLOCKS_LIMIT	20
@@ -10,22 +11,22 @@
 typedef	struct	s_memory
 {
 	/* read / write pointers */
-	char		*start;
-	char		*current_block_position;
-	char		*end;
+	char			*start;
+	char			*current_block_position;
+	char			*end;
 	
 	/* block processing
 	   for the absence of the data break */
-	int			current_block_size;
-	int			block_limit;
+	int				current_block_size;
+	int				block_limit;
 
 	/* memory pointer for testing */
-	char		*memory_pull;
+	char			*memory_pull;
 
 	/* just for testing */
-	long long int start_address;
+	long long int	start_address;
 
 }				t_memory;
 
 void	init(t_memory *memory);
-void	embedded_write(t_memory *memory, char *str);
+void	write(t_memory *memory, char *str);
