@@ -30,7 +30,7 @@ bool	memory_availability(t_memory *memory)
 {
 	if (memory->current_block_position == memory->end /*&& memory->start == memory->start_init*/)
 	{
-		printf("%s\n", "here1>>>>>>>>>>>>>>");
+		// printf("%s\n", "here1->>>>>>>>>>>>>>");
 
 		memory->current_block_size = 0;
 		memory->current_block_position = memory->start_init;
@@ -44,7 +44,7 @@ bool	memory_availability(t_memory *memory)
 
 	if ((memory->end - memory->current_block_position ) <= calculus)
 	{
-		printf("%s\n", "here2>>>>>>>>>>>>>>");
+		// printf("%s\n", "here2->>>>>>>>>>>>>>");
 		memory->current_block_size = 0;
 		memory->current_block_position = memory->start_init;
 		return (false);
@@ -82,7 +82,6 @@ void	write(t_memory *memory, char *str)
 				memory->current_block_size = 0;
 			}
 			embedded_write(memory, str, len);
-
 		}
 		else
 		{
@@ -92,42 +91,4 @@ void	write(t_memory *memory, char *str)
 				memory->blocks_total += 1;
 		}
 	}
-
-	// if (block_capacity(len, memory->current_block_size, memory->block_limit, memory))
-	// {
-	// 	// printf("cur address -> %p\n",(void*)memory->current_block_position);
-	// 	// printf("end address -> %p\n",(void*)memory->end);
-	// 	// printf("\n");
-	// 	embedded_write(memory, str, len);
-
-	// 	if (memory->blocks_total == 0)	
-	// 		memory->blocks_total += 1;
-	// 	printf("%s\n", "here1");
-	// }
-	// else
-	// {
-	// 	printf("%s\n", "here2");
-	// 	if (!memory_availability(memory))
-	// 	{
-	// 		printf("%s\n", "here3");
-
-	// 		embedded_write(memory, str, len);
-	// 		if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)	
-	// 			memory->blocks_total += 1;
-	// 	}
-	// 	else
-	// 	{
-	// 		printf("%s\n", "here4");
-
-	// 		// printf("%s\n", "here2");
-	// 		if (memory->blocks_total < (MEMORY_SIZE / BLOCK_SIZE))
-	// 			memory->blocks_total += 1;
-
-	// 		memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
-	// 		memory->current_block_size = 0;
-	
-	// 		embedded_write(memory, str, len);
-	// 	}
-	// }
-	// printf("%s\n", "here3");
 }

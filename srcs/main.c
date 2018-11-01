@@ -9,13 +9,13 @@ int		main(void)
 
 	init(&memory);
 	
-	write(&memory, "1234");
-	write(&memory, "5678");
+	write(&memory, "12");
+	write(&memory, "56");
 	// write(&memory, "3");
 	// write(&memory, "4");
 	// write(&memory, "5");
 	// write(&memory, "6");
-	write(&memory, "abcd");
+	write(&memory, "ab");
 	// write(&memory, "0");
 
 	print_memory(memory.memory_pull);
