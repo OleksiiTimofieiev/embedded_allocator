@@ -1,6 +1,6 @@
 #include "../includes/mcu.h"
 
-void	write_string(char *dst, char *src, int len) /* standard func leave in the end '\0' */
+void	write_string(char *dst, char *src, int len) /* standard func leaves in the end '\0' */
 {
 	int i = 0;
 
@@ -11,7 +11,7 @@ void	write_string(char *dst, char *src, int len) /* standard func leave in the e
 	}
 }
 
-void	embedded_write(t_memory *memory, char *str, int len)
+void	embedded_write(t_memory *memory, char *str, int len) /* write and move the current pointer */
 {
 	write_string(memory->current_block_position, str, len);
 		
@@ -19,55 +19,37 @@ void	embedded_write(t_memory *memory, char *str, int len)
 	memory->current_block_size += len;
 }
 
-bool	block_capacity(int len, int current_block_size, int block_limit, t_memory *memory) /* block capacity */
+bool	block_capacity(int len, int current_block_size, int block_limit) /* checks if the data fit to the sublock */
 {
-	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE;
-	possible_blocks *= BLOCK_SIZE;
-	//
-	// printf("%d\n", possible_blocks);
-
-	int calculus = MEMORY_SIZE - possible_blocks;
-
-	if ((memory->end - memory->current_block_position ) <= calculus)
-	{
-		// printf("%s\n", "here write");
-		memory->current_block_position = memory->start_init;
-		return (false);
-	}
-	//
-	if ( ( block_limit - current_block_size - len ) >= 0)
+	if ((block_limit - current_block_size - len) >= 0) 
 		return (true);
-	return (true);
+	return (false);
 }
 
 bool	memory_availability(t_memory *memory)
 {
-	// printf("cur address -> %p\n",(void*)memory->current_block_position);
-	// printf("end address -> %p\n",(void*)memory->end);
-
-	// printf("memory start -> %p\n", (void*)memory->start);
-	// printf("start_init%p\n", (void*)memory->start_init); // str compare method
-
-	// printf("\n");
- 	
- 	// 1. works;
 	if (memory->current_block_position == memory->end /*&& memory->start == memory->start_init*/)
 	{
+		printf("%s\n", "end");
+
 		memory->current_block_size = 0;
 		memory->current_block_position = memory->start_init;
-		// printf("%s\n", "here");
 		return (false);
 	}
-	// 2. to test;
-		// else if (current == end && start != start)
-		// space = start - current_position
-		// if o.k. -> write
-	// 3. to test;
-		// else if (start != start)
-		// 	write
-	// 4. to test;
-		// else if (start==current)
-		// block_size = 0; current = start;
+
+	// int remaining_size = MEMORY_SIZE - (memory->blocks_total * BLOCK_SIZE);
+
+
+	// remianing < block_size
+	if ((memory->end - memory->current_block_position) < BLOCK_SIZE) // check ab condition // calculus is 0 or below zero; !!!!!
+	{
+		printf("%s\n", "calculus");
+		memory->current_block_size = 0;
+		memory->current_block_position = memory->start_init;
+		return (false);
+	}
+		// printf("%s\n", "good");
+
 	return (true);
 }
 
@@ -79,11 +61,8 @@ void	write(t_memory *memory, char *str)
 
 	printf("write -> %s\n", str);
 
-	if (block_capacity(len, memory->current_block_size, memory->block_limit, memory))
+	if (block_capacity(len, memory->current_block_size, memory->block_limit))
 	{
-		// printf("cur address -> %p\n",(void*)memory->current_block_position);
-		// printf("end address -> %p\n",(void*)memory->end);
-		// printf("\n");
 		embedded_write(memory, str, len);
 
 		if (memory->blocks_total == 0)	
@@ -93,27 +72,32 @@ void	write(t_memory *memory, char *str)
 	else
 	{
 		printf("%s\n", "here2");
-		if (!memory_availability(memory))
-		{
-			printf("%s\n", "here3");
 
-			embedded_write(memory, str, len);
-			if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)	
-				memory->blocks_total += 1;
-		}
-		else
+		if (memory->current_block_position != memory->start_init)
 		{
-			printf("%s\n", "here4");
-
-			// printf("%s\n", "here2");
-			if (memory->blocks_total < (MEMORY_SIZE / BLOCK_SIZE))
-				memory->blocks_total += 1;
+			printf("%s\n", "here3.1");
 
 			memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
 			memory->current_block_size = 0;
-	
+		}
+		
+		if (memory_availability(memory))
+		{
+			printf("%s\n", "here3");
+
+			if (memory->blocks_total < (MEMORY_SIZE / BLOCK_SIZE))
+				memory->blocks_total += 1;
+
 			embedded_write(memory, str, len);
 		}
+		else
+		{
+			// printf("%s\n", "here4");
+
+			embedded_write(memory, str, len);
+
+			if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)	
+				memory->blocks_total += 1;
+		}
 	}
-	// printf("%s\n", "here3");
 }
