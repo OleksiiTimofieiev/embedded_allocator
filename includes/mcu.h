@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define	MEMORY_SIZE		8
+#define	MEMORY_SIZE		10
 #define	BLOCKS_LIMIT	2
 
 // add initial address pointer start value

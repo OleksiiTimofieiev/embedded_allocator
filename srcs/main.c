@@ -29,12 +29,8 @@ int		main(void)
 	write(&memory, "8");
 	write(&memory, "7");
 	write(&memory, "6");
-
-
-
-
-
-
+	write(&memory, "6");
+	write(&memory, "55");
 
 	print_memory(memory.memory_pull);
 	// print_blocks_available(&memory);

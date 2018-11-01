@@ -44,9 +44,17 @@ bool	memory_availability(t_memory *memory)
 		return (false);
 	}
 	// 2. to test;
+		// else if (current == end && start != start)
+		// space = start - current_position
+		// if o.k. -> write
 	// 3. to test;
-	// 3. to test;
+		// else if (start != start)
+		// 	write
+	// 4. to test;
+		// else if (start==current)
+		// block_size = 0; current = start;
 	return (true);
+
 	
 }
 
@@ -68,7 +76,6 @@ void	write(t_memory *memory, char *str)
 	else
 	{
 		// printf("%s\n", "here2");
-
 		if (!memory_availability(memory))
 			embedded_write(memory, str, len);
 		else
