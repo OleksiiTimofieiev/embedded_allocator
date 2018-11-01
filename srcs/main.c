@@ -106,8 +106,6 @@ int		main(void)
 	write(&memory, "55");
 	write(&memory, "66");
 
-
-
 	print_memory(memory.memory_pull);
 	printf("total blocks -> %d\n", memory.blocks_total);
 	
