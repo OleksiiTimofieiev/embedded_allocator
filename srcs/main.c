@@ -99,7 +99,22 @@ int		main(void)
 	print_memory(memory.memory_pull);
 	printf("total blocks -> %d\n", memory.blocks_total);
 
+	write(&memory, "11");
+	write(&memory, "22");
+	write(&memory, "33");
+	write(&memory, "44");
+	write(&memory, "55");
+	write(&memory, "66");
 
+
+
+	print_memory(memory.memory_pull);
+	printf("total blocks -> %d\n", memory.blocks_total);
+	
+	read_one_block(&memory);
+
+	print_memory(memory.memory_pull);
+	printf("total blocks -> %d\n", memory.blocks_total);
 
 	return (0);
 }
