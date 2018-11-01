@@ -69,7 +69,6 @@ void	write(t_memory *memory, char *str)
 		// printf("cur address -> %p\n",(void*)memory->current_block_position);
 		// printf("end address -> %p\n",(void*)memory->end);
 		// printf("\n");
-
 		embedded_write(memory, str, len);
 		// printf("%s\n", "here1");
 	}
