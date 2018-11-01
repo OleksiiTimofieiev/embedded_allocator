@@ -2,7 +2,7 @@
 
 // when the block is fully read and the current in the diapason of read -> move the current to the start of the new block;
 
-// if < calculus
+// if < calculus	
 
 bool	read_one_block(t_memory *memory) /* read the memory sector */
 {

@@ -73,6 +73,14 @@ void	write(t_memory *memory, char *str)
 	{
 		printf("%s\n", "here2");
 
+		if (memory->current_block_position != memory->start_init)
+		{
+			printf("%s\n", "here3.1");
+
+			memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
+			memory->current_block_size = 0;
+		}
+		
 		if (memory_availability(memory))
 		{
 			printf("%s\n", "here3");
@@ -80,13 +88,6 @@ void	write(t_memory *memory, char *str)
 			if (memory->blocks_total < (MEMORY_SIZE / BLOCK_SIZE))
 				memory->blocks_total += 1;
 
-			if (memory->current_block_position != memory->start_init)
-			{
-				printf("%s\n", "here3.1");
-
-				memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
-				memory->current_block_size = 0;
-			}
 			embedded_write(memory, str, len);
 		}
 		else
