@@ -6,7 +6,7 @@
 #define	MEMORY_SIZE		10
 #define	BLOCK_SIZE		5 // test with 5, 6, 7, 8;
 
-// add initial address pointer start value
+// remove possibly not necessary start value;
 
 typedef	struct		s_memory
 {
