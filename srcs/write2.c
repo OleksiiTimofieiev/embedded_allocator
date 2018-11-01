@@ -37,13 +37,15 @@ bool	memory_availability(t_memory *memory)
 		return (false);
 	}
 
-	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE;
-	
+	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE; // check this stuff; // different politics; // mod
+
 	possible_blocks *= BLOCK_SIZE;
 
 	int calculus = MEMORY_SIZE - possible_blocks;
 
-	if ((memory->end - memory->current_block_position ) <= calculus) // check ab condition // calculus is 0 or below zero; !!!!!
+	printf("%ld\n", memory->end - memory->current_block_position);
+
+	if ((memory->end - memory->current_block_position) <= calculus) // check ab condition // calculus is 0 or below zero; !!!!!
 	{
 		printf("%s\n", "calculus");
 		memory->current_block_size = 0;
