@@ -38,6 +38,7 @@ bool	memory_availability(t_memory *memory)
 	}
 
 	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE;
+	
 	possible_blocks *= BLOCK_SIZE;
 
 	int calculus = MEMORY_SIZE - possible_blocks;
