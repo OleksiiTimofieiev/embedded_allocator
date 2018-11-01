@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 #define	MEMORY_SIZE		10
-#define	BLOCK_SIZE		5 // test with 5, 6, 7, 8;
+#define	BLOCK_SIZE		5 // test with 5, 6, 7, 8,9, 10;
 
 // remove possibly not necessary start value;
 
