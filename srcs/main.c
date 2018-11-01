@@ -60,7 +60,7 @@ int		main(void)
 	write(&memory, "l");
 
 	print_memory(memory.memory_pull);
-	printf("total blocks -> %d\n", memory.blocks_total);
+
 
 	read_one_block(&memory);
 

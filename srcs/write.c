@@ -21,7 +21,7 @@ void	embedded_write(t_memory *memory, char *str, int len)
 
 bool	block_capacity(int len, int current_block_size, int block_limit) /* block capacity */
 {
-	if ( ( block_limit - current_block_size - len ) >= 0 )
+	if ( ( block_limit - current_block_size - len ) >= 0)
 		return (true);
 	return (false);
 }
@@ -62,6 +62,8 @@ void	write(t_memory *memory, char *str)
 	int		len;
 
 	len = strlen(str);
+
+	// printf("%s", "write -> ");
 
 	if (block_capacity(len, memory->current_block_size, memory->block_limit))
 	{
