@@ -3,6 +3,7 @@ NAME		= mcu
 CORE		= 	main.c \
 				memory_infrastructure.c \
 				write.c \
+				read.c \
 
 SRCS        = $(addprefix srcs/, $(CORE))
 
