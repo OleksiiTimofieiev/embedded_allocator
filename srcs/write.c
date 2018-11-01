@@ -80,6 +80,9 @@ void	write(t_memory *memory, char *str)
 			embedded_write(memory, str, len);
 		else
 		{
+			if (memory->total_blocks < MEMORY_SIZE / BLOCKS_LIMIT)
+				memory->total_blocks += 1;
+
 			memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
 			memory->current_block_size = 0;
 	

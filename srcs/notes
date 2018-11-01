@@ -1,0 +1,2 @@
+1. if we do not have enough space for the next portion of data -> overwrite the next block;
+2. space blocks are huge -> no necessity to manage block vs little string collision (block size == 2, incoming string = 4);
