@@ -4,5 +4,5 @@
 
 void	read(t_memory *memory)
 {
-
+	
 }
