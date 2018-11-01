@@ -19,7 +19,7 @@ typedef	struct	s_memory
 	   for the absence of the data break */
 	int				current_block_size;
 	int				block_limit;
-	int				total_blocks;
+	int				blocks_total;
 
 	/* memory pointer for testing */
 	char			*memory_pull;
@@ -28,6 +28,7 @@ typedef	struct	s_memory
 	// long long int	start_address;
 	// long long int	end_address;
 	char			*start_init;
+	char			*read_address;
 
 }				t_memory;
 

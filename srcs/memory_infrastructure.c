@@ -19,7 +19,7 @@ void	init(t_memory *memory) /* configure the memory */
 	// printf("end -> %p\n",(void*)memory->end);
 
 	memory->current_block_size = 0;
-	memory->total_blocks = 1;
+	memory->blocks_total = 1;
 	memory->block_limit = BLOCKS_LIMIT;
 
 	/* diagnostics of contiguous memory allocation */
