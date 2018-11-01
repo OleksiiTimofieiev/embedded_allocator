@@ -8,21 +8,10 @@ bool	read_one_block(t_memory *memory) /* read the memory sector */
 {
 	if (memory->blocks_total)
 	{
-		//
-		// char *buf = memory->read_address + BLOCK_SIZE;
 
-
-
-		// if (memory->current_block_position > memory->read_address && memory->current_block_position < (buf))
-		// {
-
-		// 	if (buf == memory->end)
-		// 		buf = memory->start_init;
-		// 	memory->current_block_position = buf;
-		// 	printf("%s\n", "here");
-		// }
-		//
 		
+		// if no block left
+
 		int i = 0;
 
 		printf("%s", "read -> ");
