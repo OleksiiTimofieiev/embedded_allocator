@@ -41,10 +41,10 @@ int		main(void)
 	read_one_block(&memory);
 	read_one_block(&memory);
 	read_one_block(&memory);
-	read_one_block(&memory);
-	
 
 	printf("total blocks -> %d\n", memory.blocks_total);
+
+	// read_all_blocks(&memory);
 	// print_blocks_available(&memory);
 
 	return (0);
