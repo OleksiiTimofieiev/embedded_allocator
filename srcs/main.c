@@ -30,13 +30,19 @@ int		main(void)
 	// printf("%s\n", "->>>>>>>>>>>>>>>>>>");
 
 	write(&memory, "88");
+	print_memory(memory.memory_pull);
 
 	// printf("%s\n", "->>>>>>>>>>>>>>>>>>");
 
 	// write(&memory, "b");
 
 	write(&memory, "c");
+	print_memory(memory.memory_pull);
+
 	write(&memory, "d");
+
+	print_memory(memory.memory_pull);
+
 
 	write(&memory, "e");
 	write(&memory, "f");

@@ -43,7 +43,7 @@ void	print_memory(char *str)
 
 	printf("%s", "Memory contents: ");
 
-	while (i < MEMORY_SIZE)
+	while (i < 15)
 		printf("%c", str[i++]);
 	printf(".\n");
 }	
