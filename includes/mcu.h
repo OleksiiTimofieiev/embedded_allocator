@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 #define	MEMORY_SIZE		100
-#define	BLOCK_SIZE		10 // test with 5-ve;
+#define	BLOCK_SIZE		2 // test with 5-ve;
 
 // add initial address pointer start value
 
