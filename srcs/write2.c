@@ -30,31 +30,20 @@ bool	memory_availability(t_memory *memory)
 {
 	if (memory->current_block_position == memory->end /*&& memory->start == memory->start_init*/)
 	{
-		printf("%s\n", "end");
+		// printf("%s\n", "end");
 
 		memory->current_block_size = 0;
 		memory->current_block_position = memory->start_init;
 		return (false);
 	}
 
-	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE;
-
-	// check this stuff; // different politics; // mod // len != remaining size of the block 
-	// len of str, remaining len of the block // poiter size remainging
-	// rethink the formula;
-	// if not mod , mod  != 0;
-
-	possible_blocks *= BLOCK_SIZE;
-
-	int calculus = MEMORY_SIZE - possible_blocks;
-
-	printf("calculus-------->%d\n", calculus);
-	printf("comparison------>%ld\n", memory->end - memory->current_block_position);
+	// int remaining_size = MEMORY_SIZE - (memory->blocks_total * BLOCK_SIZE);
 
 
-	if ((memory->end - memory->current_block_position) <= calculus) // check ab condition // calculus is 0 or below zero; !!!!!
+	// remianing < block_size
+	if ((memory->end - memory->current_block_position) < BLOCK_SIZE) // check ab condition // calculus is 0 or below zero; !!!!!
 	{
-		printf("%s\n", "calculus");
+		// printf("%s\n", "calculus");
 		memory->current_block_size = 0;
 		memory->current_block_position = memory->start_init;
 		return (false);
