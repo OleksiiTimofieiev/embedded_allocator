@@ -30,7 +30,7 @@ bool	memory_availability(t_memory *memory)
 {
 	if (memory->current_block_position == memory->end /*&& memory->start == memory->start_init*/)
 	{
-		// printf("%s\n", "end");
+		printf("%s\n", "end");
 
 		memory->current_block_size = 0;
 		memory->current_block_position = memory->start_init;
