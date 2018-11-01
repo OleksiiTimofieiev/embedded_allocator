@@ -17,9 +17,10 @@ int		main(void)
 	write(&memory, "6");
 	write(&memory, "7");
 	write(&memory, "8");
-	write(&memory, "xxxx");
+	write(&memory, "xx");
 	write(&memory, "aa");
-	// write(&memory, "7");
+	write(&memory, "bb");
+	write(&memory, "cc");
 	// write(&memory, "7");
 	// write(&memory, "7");
 	// write(&memory, "7");
