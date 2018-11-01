@@ -20,7 +20,7 @@ void	init(t_memory *memory) /* configure the memory */
 	// printf("end -> %p\n",(void*)memory->end);
 
 	memory->current_block_size = 0;
-	memory->blocks_total = 1;
+	memory->blocks_total = 0;
 	memory->block_limit = BLOCK_SIZE;
 
 	/* diagnostics of contiguous memory allocation */
@@ -32,7 +32,7 @@ void	init(t_memory *memory) /* configure the memory */
 	// memory->start_address = (long long int)memory->start;
 	// memory->start_address = (long long int)memory->end;
 
-	memory->start_init = memory->memory_pull;
+	memory->start_init = memory->start;
 
 	memset(memory->current_block_position, ' ', MEMORY_SIZE); /* what character to use ? */
 }

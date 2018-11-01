@@ -41,6 +41,7 @@ bool	memory_availability(t_memory *memory)
 	{
 		memory->current_block_size = 0;
 		memory->current_block_position = memory->start_init;
+		// printf("%s\n", "here");
 		return (false);
 	}
 	// 2. to test;
@@ -54,6 +55,8 @@ bool	memory_availability(t_memory *memory)
 		// else if (start==current)
 		// block_size = 0; current = start;
 	return (true);
+
+	
 }
 
 void	write(t_memory *memory, char *str)
@@ -68,13 +71,20 @@ void	write(t_memory *memory, char *str)
 		// printf("end address -> %p\n",(void*)memory->end);
 		// printf("\n");
 		embedded_write(memory, str, len);
+
+		if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)	
+			memory->blocks_total += 1;
 		// printf("%s\n", "here1");
 	}
 	else
 	{
 		// printf("%s\n", "here2");
 		if (!memory_availability(memory))
+		{
 			embedded_write(memory, str, len);
+			if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)	
+				memory->blocks_total += 1;
+		}
 		else
 		{
 			if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)
