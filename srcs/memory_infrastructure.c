@@ -10,6 +10,7 @@ void	init(t_memory *memory) /* configure the memory */
 
 	memory->current_block_position = memory->memory_pull;
 	memory->end = memory->memory_pull + MEMORY_SIZE; /* last available block */
+	memory->read_address = memory->start;
 
 	// /* initial addresses diagnostics */
 	// printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[0]);
@@ -20,7 +21,7 @@ void	init(t_memory *memory) /* configure the memory */
 
 	memory->current_block_size = 0;
 	memory->blocks_total = 1;
-	memory->block_limit = BLOCKS_LIMIT;
+	memory->block_limit = BLOCK_SIZE;
 
 	/* diagnostics of contiguous memory allocation */
 	// for(int i = 0; i < MEMORY_SIZE; i++)

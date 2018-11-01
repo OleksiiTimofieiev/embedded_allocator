@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 #define	MEMORY_SIZE		10
-#define	BLOCKS_LIMIT	2
+#define	BLOCK_SIZE		2
 
 // add initial address pointer start value
 
@@ -36,3 +36,4 @@ void			init(t_memory *memory);
 void			write(t_memory *memory, char *str);
 void			print_memory(char *str);
 void			print_blocks_available(t_memory *memory);
+void			read_one_block(t_memory *memory);

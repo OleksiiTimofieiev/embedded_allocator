@@ -54,8 +54,6 @@ bool	memory_availability(t_memory *memory)
 		// else if (start==current)
 		// block_size = 0; current = start;
 	return (true);
-
-	
 }
 
 void	write(t_memory *memory, char *str)
@@ -79,7 +77,7 @@ void	write(t_memory *memory, char *str)
 			embedded_write(memory, str, len);
 		else
 		{
-			if (memory->blocks_total < MEMORY_SIZE / BLOCKS_LIMIT)
+			if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)
 				memory->blocks_total += 1;
 
 			memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);

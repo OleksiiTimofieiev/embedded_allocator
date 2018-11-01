@@ -34,6 +34,17 @@ int		main(void)
 	print_memory(memory.memory_pull);
 
 	printf("total blocks -> %d\n", memory.blocks_total);
+
+	read_one_block(&memory);
+	read_one_block(&memory);
+	read_one_block(&memory);
+	read_one_block(&memory);
+	read_one_block(&memory);
+	read_one_block(&memory);
+	read_one_block(&memory);
+	
+
+	printf("total blocks -> %d\n", memory.blocks_total);
 	// print_blocks_available(&memory);
 
 	return (0);
