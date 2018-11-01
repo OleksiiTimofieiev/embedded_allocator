@@ -37,12 +37,17 @@ bool	memory_availability(t_memory *memory)
 	// printf("\n");
  	
  	// 1. works;
-	if (memory->current_block_position == memory->end && memory->start == memory->start_init)
+	if (memory->current_block_position == memory->end /*&& memory->start == memory->start_init*/)
+	{
+		memory->current_block_size = 0;
+		memory->current_block_position = memory->start_init;
 		return (false);
+	}
 	// 2. to test;
 	// 3. to test;
 	// 3. to test;
 	return (true);
+	
 }
 
 void	write(t_memory *memory, char *str)
@@ -64,15 +69,15 @@ void	write(t_memory *memory, char *str)
 	{
 		// printf("%s\n", "here2");
 
-		if (memory_availability(memory))
+		if (!memory_availability(memory))
+			embedded_write(memory, str, len);
+		else
 		{
 			memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);
 			memory->current_block_size = 0;
-		
+	
 			embedded_write(memory, str, len);
 		}
-		else
-			printf("%s\n", "No available memory");
 	}
 	// printf("%s\n", "here3");
 }
