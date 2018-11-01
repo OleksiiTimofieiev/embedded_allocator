@@ -55,8 +55,6 @@ bool	memory_availability(t_memory *memory)
 		// else if (start==current)
 		// block_size = 0; current = start;
 	return (true);
-
-	
 }
 
 void	write(t_memory *memory, char *str)
@@ -72,7 +70,8 @@ void	write(t_memory *memory, char *str)
 		// printf("\n");
 		embedded_write(memory, str, len);
 
-		if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)	
+		if (memory->blocks_total == 0)
+				
 			memory->blocks_total += 1;
 		// printf("%s\n", "here1");
 	}

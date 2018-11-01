@@ -19,17 +19,6 @@ int		main(void)
 	write(&memory, "8");
 	write(&memory, "9");
 	write(&memory, "0");
-	// write(&memory, "9");
-	// write(&memory, "8");
-	// write(&memory, "7");
-	// write(&memory, "7");
-	// write(&memory, "7");
-	// write(&memory, "9");
-	// write(&memory, "8");
-	// write(&memory, "7");
-	// write(&memory, "6");
-	// write(&memory, "6");
-	// write(&memory, "5");
 
 	print_memory(memory.memory_pull);
 
@@ -70,19 +59,21 @@ int		main(void)
 	write(&memory, "k");
 	write(&memory, "l");
 
-	read_one_block(&memory);
+	print_memory(memory.memory_pull);
 	
+
+	read_one_block(&memory);
+
 	write(&memory, "1");
 	write(&memory, "2");
 
-
-	
-
-	
-
-
 	print_memory(memory.memory_pull);
 
+	printf("total blocks -> %d\n", memory.blocks_total);
+
+	read_one_block(&memory);
+
+	print_memory(memory.memory_pull);
 	printf("total blocks -> %d\n", memory.blocks_total);
 
 	// read_all_blocks(&memory);
