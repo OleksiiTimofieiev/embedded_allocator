@@ -37,7 +37,8 @@ bool	memory_availability(t_memory *memory)
 		return (false);
 	}
 
-	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE; // check this stuff; // different politics; // mod // len != remaining size of the block 
+	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE; 
+	// check this stuff; // different politics; // mod // len != remaining size of the block 
 	// len of str, remaining len of the block // poiter size remainging
 
 	possible_blocks *= BLOCK_SIZE;
