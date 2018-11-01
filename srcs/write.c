@@ -70,8 +70,7 @@ void	write(t_memory *memory, char *str)
 		// printf("\n");
 		embedded_write(memory, str, len);
 
-		if (memory->blocks_total == 0)
-				
+		if (memory->blocks_total == 0)	
 			memory->blocks_total += 1;
 		// printf("%s\n", "here1");
 	}
