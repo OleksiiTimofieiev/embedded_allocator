@@ -4,11 +4,11 @@
 #include <stdbool.h>
 
 #define	MEMORY_SIZE		10
-#define	BLOCK_SIZE		2 // test with 5-ve;
+#define	BLOCK_SIZE		5 // test with 5-ve;
 
 // add initial address pointer start value
 
-typedef	struct	s_memory
+typedef	struct		s_memory
 {
 	/* read / write pointers */
 	char			*start;
@@ -30,11 +30,11 @@ typedef	struct	s_memory
 	char			*start_init;
 	char			*read_address;
 
-}				t_memory;
+}					t_memory;
 
-void			init(t_memory *memory);
-void			write(t_memory *memory, char *str);
-void			print_memory(char *str);
-void			print_blocks_available(t_memory *memory);
-bool			read_one_block(t_memory *memory);
-void			read_all_blocks(t_memory *memory);
+void				init(t_memory *memory);
+void				write(t_memory *memory, char *str);
+void				print_memory(char *str);
+void				print_blocks_available(t_memory *memory);
+bool				read_one_block(t_memory *memory);
+void				read_all_blocks(t_memory *memory);

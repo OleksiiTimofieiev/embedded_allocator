@@ -19,11 +19,25 @@ void	embedded_write(t_memory *memory, char *str, int len)
 	memory->current_block_size += len;
 }
 
-bool	block_capacity(int len, int current_block_size, int block_limit) /* block capacity */
+bool	block_capacity(int len, int current_block_size, int block_limit, t_memory *memory) /* block capacity */
 {
+	int possible_blocks = MEMORY_SIZE / BLOCK_SIZE;
+	possible_blocks *= BLOCK_SIZE;
+	//
+	// printf("%d\n", possible_blocks);
+
+	int calculus = MEMORY_SIZE - possible_blocks;
+
+	if ((memory->end - memory->current_block_position ) <= calculus)
+	{
+		// printf("%s\n", "here write");
+		memory->current_block_position = memory->start_init;
+		return (false);
+	}
+	//
 	if ( ( block_limit - current_block_size - len ) >= 0)
 		return (true);
-	return (false);
+	return (true);
 }
 
 bool	memory_availability(t_memory *memory)
@@ -63,9 +77,9 @@ void	write(t_memory *memory, char *str)
 
 	len = strlen(str);
 
-	// printf("%s", "write -> ");
+	printf("write -> %s\n", str);
 
-	if (block_capacity(len, memory->current_block_size, memory->block_limit))
+	if (block_capacity(len, memory->current_block_size, memory->block_limit, memory))
 	{
 		// printf("cur address -> %p\n",(void*)memory->current_block_position);
 		// printf("end address -> %p\n",(void*)memory->end);
@@ -74,20 +88,25 @@ void	write(t_memory *memory, char *str)
 
 		if (memory->blocks_total == 0)	
 			memory->blocks_total += 1;
-		// printf("%s\n", "here1");
+		printf("%s\n", "here1");
 	}
 	else
 	{
-		// printf("%s\n", "here2");
+		printf("%s\n", "here2");
 		if (!memory_availability(memory))
 		{
+			printf("%s\n", "here3");
+
 			embedded_write(memory, str, len);
 			if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)	
 				memory->blocks_total += 1;
 		}
 		else
 		{
-			if (memory->blocks_total < MEMORY_SIZE / BLOCK_SIZE)
+			printf("%s\n", "here4");
+
+			// printf("%s\n", "here2");
+			if (memory->blocks_total < (MEMORY_SIZE / BLOCK_SIZE))
 				memory->blocks_total += 1;
 
 			memory->current_block_position = memory->current_block_position + (memory->block_limit - memory->current_block_size);

@@ -9,16 +9,14 @@ int		main(void)
 
 	init(&memory);
 	
-	write(&memory, "1");
-	write(&memory, "2");
-	write(&memory, "3");
-	write(&memory, "4");
-	write(&memory, "5");
-	write(&memory, "6");
-	write(&memory, "7");
-	write(&memory, "8");
-	write(&memory, "9");
-	write(&memory, "0");
+	write(&memory, "1234");
+	write(&memory, "5678");
+	// write(&memory, "3");
+	// write(&memory, "4");
+	// write(&memory, "5");
+	// write(&memory, "6");
+	write(&memory, "abcd");
+	// write(&memory, "0");
 
 	print_memory(memory.memory_pull);
 
@@ -26,14 +24,16 @@ int		main(void)
 
 	read_one_block(&memory);
 	read_one_block(&memory);
-	read_one_block(&memory);
-	read_one_block(&memory);
-	read_one_block(&memory);
 
 	print_memory(memory.memory_pull);
 
-	write(&memory, "a");
-	write(&memory, "b");
+	// printf("%s\n", "->>>>>>>>>>>>>>>>>>");
+
+	write(&memory, "88");
+
+	// printf("%s\n", "->>>>>>>>>>>>>>>>>>");
+
+	// write(&memory, "b");
 
 	write(&memory, "c");
 	write(&memory, "d");
@@ -47,22 +47,23 @@ int		main(void)
 
 	print_memory(memory.memory_pull);
 	
-	read_one_block(&memory);
-	read_one_block(&memory);
-	read_one_block(&memory);
-	read_one_block(&memory);
+	// read_one_block(&memory);
+	// read_one_block(&memory);
+	// read_one_block(&memory);
+	// read_one_block(&memory);
 
 
-	print_memory(memory.memory_pull);
+	// print_memory(memory.memory_pull);
 
-
+	// printf("%s\n", "->>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	write(&memory, "k");
 	write(&memory, "l");
+	// printf("%s\n", "->>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 	print_memory(memory.memory_pull);
 
 
-	read_one_block(&memory);
+	// read_one_block(&memory);
 
 	write(&memory, "1");
 	write(&memory, "2");
@@ -71,48 +72,48 @@ int		main(void)
 
 	printf("total blocks -> %d\n", memory.blocks_total);
 
-	read_one_block(&memory);
+	// read_one_block(&memory);
 
-	print_memory(memory.memory_pull);
-	printf("total blocks -> %d\n", memory.blocks_total);
+	// print_memory(memory.memory_pull);
+	// printf("total blocks -> %d\n", memory.blocks_total);
 
-	write(&memory, "55");
-	write(&memory, "55");
-	write(&memory, "55");
-	write(&memory, "55");
-	write(&memory, "55");
+	// write(&memory, "55");
+	// write(&memory, "55");
+	// write(&memory, "55");
+	// write(&memory, "55");
+	// write(&memory, "55");
 
-	print_memory(memory.memory_pull);
-	printf("total blocks -> %d\n", memory.blocks_total);
+	// print_memory(memory.memory_pull);
+	// printf("total blocks -> %d\n", memory.blocks_total);
 
-	read_one_block(&memory);
-	read_one_block(&memory);
-	read_one_block(&memory);
-	read_one_block(&memory);
-	// read_all_blocks(&memory);
-	print_memory(memory.memory_pull);
-	printf("total blocks -> %d\n", memory.blocks_total);
-	// print_blocks_available(&memory);
+	// read_one_block(&memory);
+	// read_one_block(&memory);
+	// read_one_block(&memory);
+	// read_one_block(&memory);
+	// // read_all_blocks(&memory);
+	// print_memory(memory.memory_pull);
+	// printf("total blocks -> %d\n", memory.blocks_total);
+	// // print_blocks_available(&memory);
 
-	write(&memory, "77");
+	// write(&memory, "77");
 
-	print_memory(memory.memory_pull);
-	printf("total blocks -> %d\n", memory.blocks_total);
+	// print_memory(memory.memory_pull);
+	// printf("total blocks -> %d\n", memory.blocks_total);
 
-	write(&memory, "11");
-	write(&memory, "22");
-	write(&memory, "33");
-	write(&memory, "44");
-	write(&memory, "55");
-	write(&memory, "66");
+	// write(&memory, "11");
+	// write(&memory, "22");
+	// write(&memory, "33");
+	// write(&memory, "44");
+	// write(&memory, "55");
+	// write(&memory, "66");
 
-	print_memory(memory.memory_pull);
-	printf("total blocks -> %d\n", memory.blocks_total);
+	// print_memory(memory.memory_pull);
+	// printf("total blocks -> %d\n", memory.blocks_total);
 	
-	read_one_block(&memory);
+	// read_one_block(&memory);
 
-	print_memory(memory.memory_pull);
-	printf("total blocks -> %d\n", memory.blocks_total);
+	// print_memory(memory.memory_pull);
+	// printf("total blocks -> %d\n", memory.blocks_total);
 
 	return (0);
 }
