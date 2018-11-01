@@ -8,6 +8,8 @@ bool	read_one_block(t_memory *memory) /* read the memory sector */
 	{
 		int i = 0;
 
+		printf("%s", "read -> ");
+
 		while (i < BLOCK_SIZE)
 			printf("%c", memory->read_address[i++]);
 
@@ -16,7 +18,7 @@ bool	read_one_block(t_memory *memory) /* read the memory sector */
 		while (i < BLOCK_SIZE)
 			memory->read_address[i++] = ' ';
 		printf("\n");
-		
+
 		memory->blocks_total -= 1;
 		memory->read_address += BLOCK_SIZE;
 
