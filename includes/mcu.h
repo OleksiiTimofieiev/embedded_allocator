@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define	MEMORY_SIZE		10
-#define	BLOCK_SIZE		2
+#define	MEMORY_SIZE		100
+#define	BLOCK_SIZE		10 // test with 5-ve;
 
 // add initial address pointer start value
 
