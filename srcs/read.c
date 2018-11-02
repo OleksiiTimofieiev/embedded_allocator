@@ -7,9 +7,7 @@
 bool	read_one_block(t_memory *memory) /* read the memory sector */
 {
 	if (memory->blocks_total)
-	{
-
-		
+	{	
 		// if no block left
 
 		int i = 0;
@@ -30,6 +28,9 @@ bool	read_one_block(t_memory *memory) /* read the memory sector */
 
 		if (memory->read_address == memory->end)
 			memory->read_address = memory->start_init;
+		else if ((memory->end - memory->read_address) < BLOCK_SIZE)
+			memory->read_address = memory->start_init;
+
 
 
 		return (true);
