@@ -5,7 +5,7 @@
 
 #define	MEMORY_SIZE		10
 #define	BLOCK_SIZE		2 // test with 6
-;
+
 
 // remove possibly not necessary start value;
 
