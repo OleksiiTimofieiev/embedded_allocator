@@ -1,43 +1,21 @@
 #include "../includes/mcu.h"
 
-void	init(t_memory *memory) /* configure the memory */
+void	init(t_memory *memory) /* configure the program infrastructure */
 {
-	memory->memory_pull = (char *) malloc( ( sizeof(char) * MEMORY_SIZE) );
-
-	// memory->start = memory->memory_pull; /* start to read func */
-
-	// save to some hex value;
+	memory->memory_pull = (char *)malloc((sizeof(char) * MEMORY_SIZE));
 
 	memory->current_block_position = memory->memory_pull;
 	memory->end = memory->memory_pull + MEMORY_SIZE; /* last available block */
 	memory->read_address =  memory->memory_pull;
-
-	// /* initial addresses diagnostics */
-	// printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[0]);
-
-	// printf("start -> %p\n",(void*)memory->start);
-	// printf("current -> %p\n",(void*)memory->current_block_position);
-	// printf("end -> %p\n",(void*)memory->end);
-
 	memory->current_block_size = 0;
 	memory->blocks_total = 0;
 	memory->block_limit = BLOCK_SIZE;
-
-	/* diagnostics of contiguous memory allocation */
-	// for(int i = 0; i < MEMORY_SIZE; i++)
-	// {
-	// 	printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[i]);
-	// }
-
-	// memory->start_address = (long long int)memory->start;
-	// memory->start_address = (long long int)memory->end;
-
 	memory->start_init =  memory->memory_pull;
-
-	memset(memory->current_block_position, ' ', MEMORY_SIZE); /* what character to use ? */
+	
+	memset(memory->current_block_position, ' ', MEMORY_SIZE); /* for the char memory space */
 }
 
-void	print_memory(char *str)
+void	print_memory(char *str) /* simple print func which doesn`t needs '\0' */
 {
 	int i = 0;
 
@@ -48,7 +26,7 @@ void	print_memory(char *str)
 	printf(".\n");
 }	
 
-void	print_blocks_available(t_memory *memory)
+void	print_blocks_available(t_memory *memory) /* active block available in memory */
 {
 	printf("Memory available: %ld block(s).\n", memory->end - memory->current_block_position); /* till the end of the block when the start remains unchanged */
 }

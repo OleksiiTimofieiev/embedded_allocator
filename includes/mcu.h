@@ -1,36 +1,26 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+#include 			<stdio.h>
+#include 			<stdlib.h>
+#include 			<string.h>
+#include 			<stdbool.h>
 
-#define	MEMORY_SIZE		10
-#define	BLOCK_SIZE		2 // test with 6
-
-
-// remove possibly not necessary start value;
+#define				MEMORY_SIZE		10
+#define				BLOCK_SIZE		4
 
 typedef	struct		s_memory
 {
 	/* read / write pointers */
-	// char			*start;
 	char			*current_block_position;
 	char			*end;
 	
-	/* block processing
-	   for the absence of the data break */
+	/* block processing for the absence of the data break */
 	int				current_block_size;
 	int				block_limit;
 	int				blocks_total;
 
 	/* memory pointer for testing */
 	char			*memory_pull;
-
-	/* just for testing */
-	// long long int	start_address;
-	// long long int	end_address;
 	char			*start_init;
 	char			*read_address;
-
 }					t_memory;
 
 void				init(t_memory *memory);

@@ -1,7 +1,6 @@
 #include "../includes/mcu.h"
 
 // leaks management;
-// commands from the command line: menu(available memory,commands), read, write, memory usage;
 
 int		main(void)
 {

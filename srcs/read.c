@@ -1,15 +1,9 @@
 #include "../includes/mcu.h"
 
-// when the block is fully read and the current in the diapason of read -> move the current to the start of the new block;
-
-// if < calculus	
-
 bool	read_one_block(t_memory *memory) /* read the memory sector */
 {
-	if (memory->blocks_total)
+	if (memory->blocks_total) /* no block left -> nothing to read in the address space */
 	{	
-		// if no block left
-
 		int i = 0;
 
 		printf("%s", "read -> ");
@@ -26,13 +20,11 @@ bool	read_one_block(t_memory *memory) /* read the memory sector */
 		memory->blocks_total -= 1;
 		memory->read_address += BLOCK_SIZE;
 
+		/* in order to start the read from the address of the address space */
 		if (memory->read_address == memory->end)
 			memory->read_address = memory->start_init;
 		else if ((memory->end - memory->read_address) < BLOCK_SIZE)
 			memory->read_address = memory->start_init;
-
-
-
 		return (true);
 	}
 	else
