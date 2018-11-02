@@ -4,13 +4,13 @@ void	init(t_memory *memory) /* configure the memory */
 {
 	memory->memory_pull = (char *) malloc( ( sizeof(char) * MEMORY_SIZE) );
 
-	memory->start = memory->memory_pull; /* start to read func */
+	// memory->start = memory->memory_pull; /* start to read func */
 
 	// save to some hex value;
 
 	memory->current_block_position = memory->memory_pull;
 	memory->end = memory->memory_pull + MEMORY_SIZE; /* last available block */
-	memory->read_address = memory->start;
+	memory->read_address =  memory->memory_pull;
 
 	// /* initial addresses diagnostics */
 	// printf("memory_pull_start -> %p\n",(void*)&memory->memory_pull[0]);
@@ -32,7 +32,7 @@ void	init(t_memory *memory) /* configure the memory */
 	// memory->start_address = (long long int)memory->start;
 	// memory->start_address = (long long int)memory->end;
 
-	memory->start_init = memory->start;
+	memory->start_init =  memory->memory_pull;
 
 	memset(memory->current_block_position, ' ', MEMORY_SIZE); /* what character to use ? */
 }

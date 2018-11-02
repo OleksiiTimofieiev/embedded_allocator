@@ -12,7 +12,7 @@
 typedef	struct		s_memory
 {
 	/* read / write pointers */
-	char			*start;
+	// char			*start;
 	char			*current_block_position;
 	char			*end;
 	
