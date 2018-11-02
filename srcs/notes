@@ -3,3 +3,5 @@
 2. space blocks are huge -> no necessity to manage block vs little string collision (block size == 2, incoming string = 4 || str is bigger then the block or several blocks), len > block_size;
 
 3. if we have the data type of size bigger then 1 byte, block_available = (end - current) / memory for the 1 unit of syze of the correspondent type; some calculations have to be reconsidered;
+
+4. we will work with one byte data unit in the memory space address;
